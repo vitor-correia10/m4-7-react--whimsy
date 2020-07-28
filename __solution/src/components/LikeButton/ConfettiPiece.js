@@ -1,10 +1,8 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import React from "react";
+import styled, { keyframes } from "styled-components";
 
-import { random, range, sample } from '../../utils';
-
-import Particle from '../Particle';
+import Particle from "./Particle";
 
 const ConfettiPiece = ({ angle, distance, color }) => {
   const size = 10;
@@ -16,10 +14,6 @@ const ConfettiPiece = ({ angle, distance, color }) => {
         startDistance={distance * 0.55}
         endDistance={distance}
       >
-        {/*
-        The main version of this component just uses the color passed by the
-        parent component:
-       */}
         <Circle
           style={{
             width: size,
@@ -27,22 +21,6 @@ const ConfettiPiece = ({ angle, distance, color }) => {
             background: color,
           }}
         />
-
-        {/*
-          For fun, I added another stretch goal that changes the color of
-          each particle. In this case, the color isn't used, and instead it
-          picks a random keyframe to use.
-
-          Uncomment to use:
-        */}
-
-        {/* <Circle
-          keyframeId={sample(['warm', 'mid', 'cool'])}
-          style={{
-            width: size,
-            height: size,
-          }}
-        /> */}
       </Particle>
     </CenteredWithinParent>
   );
@@ -64,13 +42,13 @@ const coolKeyframe = keyframes`
   100% { background: turquoise; }
 `;
 
-const getKeyframeForId = id => {
+const getKeyframeForId = (id) => {
   switch (id) {
-    case 'warm':
+    case "warm":
       return warmKeyframe;
-    case 'mid':
+    case "mid":
       return midKeyframe;
-    case 'cool':
+    case "cool":
       return coolKeyframe;
     default:
     // Do nothing
@@ -86,7 +64,7 @@ const CenteredWithinParent = styled.div`
 
 const Circle = styled.div`
   border-radius: 50%;
-  animation: ${props => getKeyframeForId(props.keyframeId)} 1000ms infinite;
+  animation: ${(props) => getKeyframeForId(props.keyframeId)} 1000ms infinite;
 `;
 
 export default ConfettiPiece;

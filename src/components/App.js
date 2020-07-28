@@ -1,10 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
-import 'focus-visible';
+import React from "react";
+import styled from "styled-components";
 
-import avatar from '../../assets/carmen-sandiego.png';
+import Tweet from "./Tweet";
 
-import Tweet from '../Tweet';
+import avatar from "../assets/carmen-sandiego.png";
 
 const App = () => {
   return (
@@ -14,7 +13,8 @@ const App = () => {
         displayName="Carmen Sandiego ✨"
         username="carmen-sandiego"
         avatarSrc={avatar}
-        timestamp={new Date()}
+        isRetweetedByCurrentUser={false}
+        isLikedByCurrentUser={false}
       />
     </Wrapper>
   );
@@ -27,4 +27,5 @@ const Wrapper = styled.div`
   height: 100vh;
   background: #eee;
 `;
+
 export default App;

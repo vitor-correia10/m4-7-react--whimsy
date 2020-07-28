@@ -1,12 +1,11 @@
-import React from 'react';
-import { useSpring, animated } from 'react-spring';
+import React from "react";
+import { useSpring, animated } from "react-spring";
 
-import { sample } from '../../utils';
-import useReduceMotion from '../../hooks/use-reduce-motion.hook';
+import { sample } from "../../utils";
 
 // This helper function can convert your angle to radians, which is the format
 // that Math.sin and Math.cos expect.
-const convertDegreesToRadians = angle => (angle * Math.PI) / 180;
+const convertDegreesToRadians = (angle) => (angle * Math.PI) / 180;
 
 const Particle = ({ angle, startDistance, endDistance, children }) => {
   const angleInRads = convertDegreesToRadians(angle);
@@ -39,12 +38,6 @@ const Particle = ({ angle, startDistance, endDistance, children }) => {
       friction: 20,
     },
   });
-
-  const reduceMotion = useReduceMotion();
-
-  if (reduceMotion) {
-    return null;
-  }
 
   return (
     <animated.div
