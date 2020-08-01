@@ -10,6 +10,7 @@ const Tweet = () => {
     displayName,
     username,
     avatarSrc,
+    date,
     tweetContents,
     isRetweetedByCurrentUser,
     isLikedByCurrentUser,
@@ -22,6 +23,7 @@ const Tweet = () => {
         avatarSrc={avatarSrc}
       />
       <TweetContents>{tweetContents}</TweetContents>
+      <Timestamp>{date}</Timestamp>
       <Divider />
       <ActionBar
         isRetweetedByCurrentUser={isRetweetedByCurrentUser}
