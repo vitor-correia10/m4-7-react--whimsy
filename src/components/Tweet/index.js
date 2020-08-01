@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
+import Stat from "./Stat";
 
 import Header from "./Header";
 import ActionBar from "./ActionBar";
 import { TweetContext } from "../TweetContext";
+
 
 const Tweet = () => {
   const {
@@ -14,6 +16,8 @@ const Tweet = () => {
     tweetContents,
     isRetweetedByCurrentUser,
     isLikedByCurrentUser,
+    numOfLikes,
+    numOfRetweets,
   } = useContext(TweetContext);
   return (
     <Wrapper>
@@ -24,6 +28,11 @@ const Tweet = () => {
       />
       <TweetContents>{tweetContents}</TweetContents>
       <Timestamp>{date}</Timestamp>
+      <Divider />
+      <Stats>
+        <Stat num={numOfRetweets} text={numOfRetweets === 1 ? 'Retweet' : 'Retweets'}></Stat>
+        <Stat num={numOfLikes} text={numOfLikes === 1 ? 'Like' : 'Likes'}></Stat>
+      </Stats>
       <Divider />
       <ActionBar
         isRetweetedByCurrentUser={isRetweetedByCurrentUser}
