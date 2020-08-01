@@ -13,7 +13,8 @@ const LikeButton = ({ size = 40 }) => {
 
   return (
     <Wrapper style={{ width: size, height: size }}>
-      <Heart width={heartSize} />
+      {isLikedByCurrentUser && <PoppingCircle size={size} color='#E790F7' />}
+      <Heart width={heartSize} isToggled={isLikedByCurrentUser} />
     </Wrapper>
   );
 };
