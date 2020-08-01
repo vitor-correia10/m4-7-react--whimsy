@@ -4,7 +4,6 @@ import moment from 'moment';
 
 export const TweetContext = React.createContext();
 
-
 export const TweetProvider = ({ children }) => {
     const date = moment().format('h:mm A - MMM Do, YYYY ');
 
@@ -12,6 +11,18 @@ export const TweetProvider = ({ children }) => {
     const [numOfRetweets, setNumOfRetweets] = React.useState(65);
     const [isLiked, setIsLiked] = React.useState(false);
     const [isRetweeted, setIsRetweeted] = React.useState(false);
+
+    const handleToggleLike = () => {
+        setIsLiked(!isLiked);
+
+        !isLiked ? setNumOfLikes(numOfLikes + 1) : setNumOfLikes(numOfLikes - 1);
+    };
+
+    const handleToggleRetweet = () => {
+        setIsRetweeted(!isRetweeted);
+
+        !isRetweeted ? setNumOfRetweets(numOfRetweets + 1) : setNumOfRetweets(numOfRetweets - 1);
+    };
 
     return (
         <TweetContext.Provider
@@ -25,6 +36,8 @@ export const TweetProvider = ({ children }) => {
                 isLikedByCurrentUser: isRetweeted,
                 numOfLikes: numOfLikes,
                 numOfRetweets: numOfRetweets,
+                handleToggleLike,
+                handleToggleRetweet,
             }}
         >
             {children}
