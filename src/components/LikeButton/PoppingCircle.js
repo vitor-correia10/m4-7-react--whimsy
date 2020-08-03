@@ -28,7 +28,7 @@ const fade = keyframes`
 
 const Wrapper = styled.div`
   border-radius: 50%;
-  animation: ${scale} 300ms forwards, ${fade} 500ms forwards;
+  animation: ${scale} 500ms forwards, ${fade} 1000ms forwards;
 `;
 
 export default PoppingCircle;
